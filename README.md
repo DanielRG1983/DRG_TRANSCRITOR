@@ -1,113 +1,55 @@
+# DRG_TRANSCRITOR
+# Transcritor – By DanielRG – PCPI é um aplicativo de interface gráfica para conversão e transcrição automática de arquivos de mídia (áudio e vídeo). Desenvolvido em Python e empacotado com PyInstaller, o programa converte arquivos para o formato WAV, divide o áudio em segmentos e utiliza a API do Google Speech Recognition para gerar transcrições – tudo por meio de uma interface intuitiva construída com CustomTkinter.
 
+Visão Geral
+Esta aplicação foi criada para facilitar a transcrição de arquivos de áudio e vídeo. Com ela, o usuário pode:
 
-Transcritor – By DanielRG – PCPI
-O Transcritor é uma aplicação de interface gráfica desenvolvida em Python que automatiza o processo de conversão e transcrição de arquivos de mídia (áudio e vídeo). Utilizando diversas bibliotecas, como pydub e speech_recognition, a aplicação permite que o usuário converta arquivos para o formato WAV, divida o áudio em trechos menores e transcreva cada segmento por meio da API do Google para reconhecimento de voz. Toda essa funcionalidade é apresentada em uma interface moderna e intuitiva construída com CustomTkinter.
+Converter automaticamente diversos formatos de mídia para o formato WAV (usando o ffmpeg.exe);
 
-Funcionalidades Principais
-Conversão de Mídia:
+Dividir o áudio em segmentos (chunks) para uma transcrição mais eficiente;
 
-A aplicação suporta vários formatos de áudio e vídeo (ex: .mp3, .mp4, .avi, .flac, .ogg, etc.).
+Transcrever cada segmento utilizando a API do Google Speech Recognition (pt-BR);
 
-Se necessário, arquivos que não estejam no formato WAV são convertidos automaticamente utilizando o ffmpeg.exe (que deve estar na mesma pasta do executável ou empacotado com a aplicação).
+Salvar as transcrições em arquivos de texto individuais e em um arquivo consolidado;
 
-Segmentação e Transcrição:
+Acompanhar o andamento do processamento através de uma barra de progresso e um log de status;
 
-O áudio é dividido em segmentos (por padrão, de 60 segundos), facilitando o processamento e melhorando a robustez da transcrição.
+Visualizar informações do desenvolvedor e um QR Code para doação (exibido na abertura e ao fechar o aplicativo).
 
-Cada segmento é transcrito automaticamente utilizando a API do Google Speech Recognition com suporte para o idioma pt-BR.
+Como Usar
+Este repositório disponibiliza somente o executável da aplicação – o código-fonte não será divulgado.
 
-As transcrições geradas para cada segmento são concatenadas para formar a transcrição final do arquivo.
+Requisitos
+Windows (o executável foi gerado para Windows).
 
-Para cada mídia processada, é salvo um arquivo de texto individual e também é gerado um arquivo consolidado com todas as transcrições.
+Os arquivos ffmpeg.exe e QRCODE.jpeg já estão incluídos junto ao executável.
 
-Interface Gráfica Intuitiva:
+Execução
+IMPORTANTE:
 
-Seleção de Arquivos/Pastas: O usuário pode escolher uma pasta contendo diversos arquivos de mídia ou selecionar arquivos individuais.
+## Desative o antivírus ou crie uma exceção para a aplicação;
 
-Seleção do Destino: É possível definir uma pasta para salvar os arquivos de transcrição.
+## Execute o aplicativo como administrador.
 
-Feedback em Tempo Real: A interface inclui uma barra de progresso e uma área de log que exibe mensagens detalhadas do andamento do processamento.
+Extraia todos os arquivos da distribuição (eles devem estar na mesma pasta).
 
-Informações e Doação: Informações do desenvolvedor, juntamente com um QR Code para doação, são exibidas automaticamente ao iniciar e ao fechar a aplicação.
+Execute o arquivo DRG_TRANSCRITOR_V7.exe.
 
-Operação Multithread:
+Na interface:
 
-O processamento (que pode ser demorado para arquivos grandes) é executado em uma thread separada, mantendo a interface responsiva durante a transcrição.
+Selecione a pasta contendo os arquivos de mídia ou escolha arquivos individuais.
 
-Como a Aplicação Funciona
-Inicialização e Configuração:
+Defina a pasta de destino para salvar os arquivos de transcrição.
 
-Ao iniciar, a aplicação exibe sua interface gráfica com opções para selecionar os arquivos de mídia (ou uma pasta inteira), escolher o destino para salvar as transcrições e visualizar informações do desenvolvedor.
+Clique no botão Executar para iniciar o processamento.
 
-Um QR Code para doação é exibido automaticamente logo após a abertura e novamente ao fechar o aplicativo, reforçando a possibilidade de apoio ao projeto.
+Durante a execução, a barra de progresso e o log exibem as etapas do processo.
 
-Seleção de Arquivos e Pastas:
+Ao fechar a aplicação, um QR Code para doação será exibido.
 
-O usuário pode clicar nos botões "Selecionar Pasta" ou "Selecionar Arquivos" para informar a origem dos arquivos de mídia.
+Distribuição e Licença
+Uso Livre: Este aplicativo é de uso livre.
 
-Um campo específico é utilizado para definir a pasta de destino onde os arquivos de transcrição serão salvos.
+Executável Único: Apenas o executável será disponibilizado a fim de facilitar o uso pelo usuário final, sem necessidade de instalação de dependências.
 
-Processamento dos Arquivos:
-
-Quando o usuário clica em "Executar", a aplicação:
-
-Converte os arquivos para WAV, se necessário, utilizando o ffmpeg.exe.
-
-Divide o áudio em chunks (segmentos) de 60 segundos para facilitar a transcrição.
-
-Transcreve cada chunk individualmente utilizando a API do Google, capturando possíveis erros e tentando novas tentativas em caso de falhas de conexão.
-
-Combina as transcrições dos chunks em um único texto, salvando um arquivo .txt para cada mídia e gerando também um arquivo consolidado com todas as transcrições.
-
-Feedback e Monitoramento:
-
-Durante o processamento, uma barra de progresso e uma área de log fornecem informações em tempo real sobre o andamento, exibindo mensagens como "Áudio carregado", "Chunk transcrito", "Removido arquivo temporário", entre outras.
-
-Caso algum erro ocorra (por exemplo, falha na conversão ou na transcrição), a aplicação registra a mensagem de erro no log para facilitar o diagnóstico.
-
-Finalização:
-
-Ao concluir o processamento de todos os arquivos, o usuário é notificado por meio de uma mensagem de sucesso.
-
-O QR Code para doação é novamente exibido antes do fechamento da aplicação, permitindo que o usuário saiba onde ajudar no projeto.
-
-Tecnologias Utilizadas
-Python 3.9+: Linguagem de programação utilizada no desenvolvimento.
-
-CustomTkinter: Biblioteca para criação de interfaces gráficas modernas e responsivas.
-
-pydub: Utilizada para manipulação e conversão de arquivos de áudio.
-
-speech_recognition: Responsável pela transcrição de áudio utilizando a API do Google.
-
-ffmpeg: Ferramenta externa utilizada para converter vídeos e áudios para o formato WAV.
-
-Pillow (PIL): Utilizada para manipular imagens, como exibição do QR Code.
-
-PyInstaller: Ferramenta para empacotar o projeto em um único executável, incluindo todos os arquivos necessários.
-
-Instruções de Uso
-Pré-requisitos:
-
-Certifique-se de ter o ffmpeg.exe e o QRCODE.jpeg na mesma pasta do aplicativo (ou empacotados com o executável).
-
-Instale todas as dependências Python (consulte o arquivo requirements.txt se disponível).
-
-Execução:
-
-Rode o aplicativo via Python (python DRG_TRANSCRITOR_V7.py) ou, após empacotar, execute o arquivo .exe gerado (na pasta dist).
-
-Na interface, selecione os arquivos ou a pasta de mídia a ser processada e defina a pasta de destino para os relatórios.
-
-Processamento:
-
-Clique em "Executar" para iniciar a conversão, segmentação e transcrição.
-
-Acompanhe o andamento pelo log e pela barra de progresso.
-
-Finalização:
-
-Ao término, os arquivos de transcrição serão salvos individualmente e em um arquivo consolidado.
-
-O aplicativo exibirá também uma mensagem de sucesso e o QR Code para doação aparecerá ao fechar a aplicação.
-
+Sinta-se à vontade para compartilhar e utilizar este aplicativo conforme sua necessidade.
