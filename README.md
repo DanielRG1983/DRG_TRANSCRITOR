@@ -48,7 +48,7 @@ Durante a execução, a barra de progresso e o log exibem as etapas do processo.
 Ao fechar a aplicação, um QR Code para doação será exibido.
 
 Distribuição e Licença
-Uso Livre: Este aplicativo é de uso livre.
+## Uso Livre: Este aplicativo é de uso livre.
 
 Executável Único: Apenas o executável será disponibilizado a fim de facilitar o uso pelo usuário final, sem necessidade de instalação de dependências.
 
